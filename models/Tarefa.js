@@ -4,6 +4,7 @@ const TarefaSchema = new mongoose.Schema({
   titulo: { type: String, required: true },
   descricao: { type: String },
   status: { type: String, required: true, enum: ['pendente', 'realizando', 'concluída'] },
+  prioridade: { type: String, enum: ['baixa', 'média', 'alta'], default: 'baixa' },
   data_vencimento: { 
     type: Date, 
     validate: {
@@ -16,4 +17,3 @@ const TarefaSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Tarefa', TarefaSchema);
-
